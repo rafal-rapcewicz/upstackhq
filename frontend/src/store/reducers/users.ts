@@ -33,7 +33,7 @@ const usersSlice = createSlice({
     },
     fetchUsersSucceeded(state, action: PayloadAction<UsersPart>) {
       const { users } = action.payload;
-      state.users = state.users.concat(users);
+      state.users = users;
       state.isBusy = false;
     },
     fetchUsersFailed(state, action: PayloadAction<ErrorPart>) {
