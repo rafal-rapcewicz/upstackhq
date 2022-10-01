@@ -46,8 +46,7 @@ const usersSlice = createSlice({
 
 const { fetchUsersStarted, fetchUsersSucceeded, fetchUsersFailed } = usersSlice.actions;
 
-/*
-const fetchUsers = () => async (dispatch: Dispatch<AnyAction>, getState: () => UsersState) => {
+export const fetchUsers = () => async (dispatch: Dispatch<AnyAction>) => {
     dispatch(fetchUsersStarted());
 
     try {
@@ -59,7 +58,6 @@ const fetchUsers = () => async (dispatch: Dispatch<AnyAction>, getState: () => U
         dispatch(fetchUsersFailed({ error: 'Error' }));
     }
 };
-*/
 
 export { fetchUsersStarted, fetchUsersSucceeded, fetchUsersFailed };
 

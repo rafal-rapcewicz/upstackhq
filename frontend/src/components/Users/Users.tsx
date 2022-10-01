@@ -1,15 +1,17 @@
 import React, { useEffect, memo } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from '../../store/store';
 import { RootState } from "../../store/reducers/rootReducer";
+import { fetchUsers } from "../../store/reducers/users";
 import { User } from "../../domain/user";
 import "./Users.scss";
 
 export const Users = memo(() => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const users: User[] = useSelector<RootState, User[]>((state) => state.users.users);
 
   useEffect(() => {
-    dispatch({ type: "users/fetchUsers" });
+    dispatch(fetchUsers());
   }, []);
 
   return (
