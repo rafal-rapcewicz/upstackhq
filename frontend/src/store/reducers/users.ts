@@ -59,6 +59,6 @@ export const fetchUsers = () => async (dispatch: Dispatch<AnyAction>) => {
     }
 };
 
-export { fetchUsersStarted, fetchUsersSucceeded, fetchUsersFailed };
+export { fetchUsersStarted, fetchUsersSucceeded, fetchUsersFailed, initialState };
 
 export default usersSlice.reducer;
