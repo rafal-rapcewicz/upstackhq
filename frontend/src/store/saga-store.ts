@@ -6,7 +6,7 @@ import usersSaga from './users/saga';
 
 const saga = createSagaMiddleware();
 
-// store with thunk middleware
+// store with saga middleware
 const store = configureStore({
     reducer: rootReducer,
     middleware: getDefaultMiddleware =>
