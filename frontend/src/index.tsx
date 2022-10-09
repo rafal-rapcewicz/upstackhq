@@ -1,19 +1,15 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
-import { Provider } from "react-redux";
-import store from "./store/store";
 import "./index.scss";
-import App from "./App";
+// import ThunkApp from "./ThunkApp";
+import SagaApp from "./SagaApp";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  //<React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+  //<React.StrictMode> // commented to avoid useEffect(fn, []) calling fn TWICE ..
+  <SagaApp />
   //</React.StrictMode>
 );
 

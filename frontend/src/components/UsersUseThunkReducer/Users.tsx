@@ -1,15 +1,13 @@
-import React, { useEffect, memo } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, memo } from "react";
 import { useThunkReducer } from '../../store/useThunkReducer';
-import reducer, { fetchUsers, initialState, UsersState } from "../../store/reducers/users";
-import { User } from "../../domain/user";
-import "./Users2.scss";
+import { reducer, asyncFetchUsersAction, initialState, UsersState } from "../../store/users";
+import "./Users.scss";
 
-export const Users2 = memo(() => {
-  const [state, dispatch] = useThunkReducer(reducer, initialState);
+export const Users = memo(() => {
+  const [state, dispatch] = useThunkReducer<UsersState>(reducer, initialState);
 
   useEffect(() => {
-    dispatch(fetchUsers());
+    dispatch(asyncFetchUsersAction());
   }, []);
 
   return (

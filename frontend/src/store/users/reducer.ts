@@ -1,7 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AnyAction, Dispatch } from 'redux';
-
-import { User } from "../../domain/user";
+import { User } from './domain';
 
 export interface UsersPart {
   users: User[];
@@ -45,20 +43,6 @@ const usersSlice = createSlice({
 });
 
 const { fetchUsersStarted, fetchUsersSucceeded, fetchUsersFailed } = usersSlice.actions;
+const reducer = usersSlice.reducer;
 
-export const fetchUsers = () => async (dispatch: Dispatch<AnyAction>) => {
-    dispatch(fetchUsersStarted());
-
-    try {
-        const response = await fetch('http://localhost:3000/users');
-        const users = await response.json() as User[];
-
-        dispatch(fetchUsersSucceeded({ users }));
-    } catch (error) {
-        dispatch(fetchUsersFailed({ error: 'Error' }));
-    }
-};
-
-export { fetchUsersStarted, fetchUsersSucceeded, fetchUsersFailed, initialState };
-
-export default usersSlice.reducer;
+export { reducer, fetchUsersStarted, fetchUsersSucceeded, fetchUsersFailed, initialState };
