@@ -2,7 +2,9 @@ import { useEffect, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/rootReducer";
 import { User, fetchUsersStarted } from "../../store/users";
-import "./Users.scss";
+import styles from "./Users.module.scss";
+
+console.log(styles);
 
 export const Users = memo(() => {
   const dispatch = useDispatch();
@@ -26,7 +28,7 @@ export const Users = memo(() => {
           <tr key={user.id}>
             <td>{user.id}</td>
             <td>{user.name}</td>
-            <td>{user.email}</td>
+            <td className={styles.importand}>{user.email}</td>
           </tr>
         ))}
       </tbody>

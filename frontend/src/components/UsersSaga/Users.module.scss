@@ -1,0 +1,11 @@
+table {
+    width: 50%;
+
+    td {
+        &.importand {
+            background-color: deeppink;
+            color: white;
+            padding: 3px;
+        }
+    }
+}
